@@ -1,0 +1,66 @@
+body {
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: red;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: 0;
+  width: 90%;
+  list-style: none;
+}
+
+#letterMenu {
+  justify-content: space-between;
+}
+
+#letterMenu li:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#container {
+}
+
+/* 
+#container li:before {
+  content: "";
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background-image: url(https://www.freepngimg.com/download/bulldog/63510-cute-toy-picture-bulldog-hat-claus-dog.png);
+  background-size: cover;
+  margin-right: 10px;
+}
+ */
+
+.breedLink {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.breedLink:hover {
+  color: blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#imageContainer {
+}
+
+.breedImage {
+  height: 50px;
+  width: 50px;
+  background-position: center;
+  background-size: cover;
+}
+
+#clear {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: rgb(132, 23, 146);
+}
