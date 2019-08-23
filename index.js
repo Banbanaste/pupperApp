@@ -1,3 +1,5 @@
+let jsonData;
+
 fetch("https://dog.ceo/api/breeds/list/all")
   .then(response => response.json())
   .then(data => {
@@ -15,6 +17,9 @@ fetch("https://dog.ceo/api/breeds/list/all")
         });
       }
     });
+
+    jsonData = breedLinks;
+
     breedLinks.forEach(breedLink => {
       if (breedLink.indexOf(" ") >= 0) {
         let newLink = breedLink.split(" ");
@@ -49,5 +54,48 @@ function getBreedImages(e) {
           ).innerHTML += `<li class="breedImage" onclick="" style="background-image: url(${img})" />`;
         });
       });
+  }
+}
+
+let breeds;
+setTimeout(() => {
+  breeds = jsonData;
+  console.log(breeds);
+}, 1000);
+
+function sortByLetter(e) {
+  document.getElementById("container").innerHTML = "";
+  if (e === "all") {
+    breeds.forEach(breedLink => {
+      if (breedLink.indexOf(" ") >= 0) {
+        let newLink = breedLink.split(" ");
+        newLink.reverse();
+        let newBreedLink = newLink.join("/");
+        document.getElementById(
+          "container"
+        ).innerHTML += `<li class="breedLink" onclick="getBreedImages(event)" value="${newBreedLink}">${breedLink}</li>`;
+      } else {
+        document.getElementById(
+          "container"
+        ).innerHTML += `<li class="breedLink" onclick="getBreedImages(event)" value="${breedLink}">${breedLink}</li>`;
+      }
+    });
+  } else {
+    let filteredBreeds = breeds.filter(breed => breed.indexOf(e) === 0);
+    console.log(filteredBreeds);
+    filteredBreeds.forEach(breedLink => {
+      if (breedLink.indexOf(" ") >= 0) {
+        let newLink = breedLink.split(" ");
+        newLink.reverse();
+        let newBreedLink = newLink.join("/");
+        document.getElementById(
+          "container"
+        ).innerHTML += `<li class="breedLink" onclick="getBreedImages(event)" value="${newBreedLink}">${breedLink}</li>`;
+      } else {
+        document.getElementById(
+          "container"
+        ).innerHTML += `<li class="breedLink" onclick="getBreedImages(event)" value="${breedLink}">${breedLink}</li>`;
+      }
+    });
   }
 }
