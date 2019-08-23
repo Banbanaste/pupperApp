@@ -4,6 +4,13 @@ body {
   color: red;
 }
 
+h1 {
+  width: 90%;
+  color: rgb(185, 185, 185);
+  font-weight: 300;
+  margin: 20px auto;
+}
+
 ul {
   display: flex;
   flex-wrap: wrap;
@@ -15,6 +22,10 @@ ul {
 
 #letterMenu {
   justify-content: space-between;
+  max-width: 90%;
+}
+
+#letterMenu li {
 }
 
 #letterMenu li:hover {
@@ -60,7 +71,13 @@ ul {
 }
 
 #clear {
-  font-size: 24px;
+  font-size: 16px;
   text-transform: uppercase;
-  color: rgb(132, 23, 146);
+  color: rgb(255, 255, 255);
+  border-radius: 5px;
+  background-color: rgb(236, 110, 65);
+  width: 90%;
+  text-align: center;
+  margin: 20px auto;
+  padding: 10px 0;
 }
