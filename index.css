@@ -25,7 +25,7 @@ ul {
 
 #letterMenu li {
   border-radius: 5px;
-  margin: 10px;
+  margin: 10px 20px 10px 0px;
   background-color: rgb(173, 250, 173);
   padding: 5px 10px;
 }
@@ -39,22 +39,10 @@ ul {
 #container {
 }
 
-/* 
-#container li:before {
-  content: "";
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  background-image: url(https://www.freepngimg.com/download/bulldog/63510-cute-toy-picture-bulldog-hat-claus-dog.png);
-  background-size: cover;
-  margin-right: 10px;
-}
- */
-
 .breedLink {
   font-size: 14px;
   text-transform: capitalize;
-  margin: 10px;
+  margin: 10px 20px 10px 0px;
   border-radius: 5px;
   background-color: rgb(173, 250, 173);
   padding: 5px 10px;
