@@ -1,4 +1,7 @@
+// const DogClass = require("./dogs");
+
 let jsonData;
+let initDog;
 
 fetch("https://dog.ceo/api/breeds/list/all")
   .then(response => response.json())
@@ -19,8 +22,8 @@ fetch("https://dog.ceo/api/breeds/list/all")
     });
 
     jsonData = breedLinks;
-
-    breedLinks.forEach(breedLink => {
+    initDog = new Dogs(breedLinks);
+    /* breedLinks.forEach(breedLink => {
       if (breedLink.indexOf(" ") >= 0) {
         let newLink = breedLink.split(" ");
         newLink.reverse();
@@ -33,8 +36,23 @@ fetch("https://dog.ceo/api/breeds/list/all")
           "container"
         ).innerHTML += `<li class="breedLink" onclick="getBreedImages(event)" value="${breedLink}">${breedLink}</li>`;
       }
-    });
+    }); */
   });
+
+let breeds;
+setTimeout(() => {
+  breeds = jsonData;
+  console.log(breeds);
+  initDog.linkOutput();
+  console.log("\n-----------------------\n");
+  initDog.alphabetFilter(["a", "b"]);
+  console.log(initDog.filteredBreeds);
+  console.log("\n-----------------------\n");
+  console.log(initDog.linkArray);
+  console.log("\n-----------------------\n");
+  initDog.resetFilter();
+  console.log(initDog.linkArray);
+}, 1000);
 
 /* function makeListItem(element, item, itemLink, event) {
   document.getElementById(
@@ -43,7 +61,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
 }
  */
 
-function getBreedImages(e) {
+/* function getBreedImages(e) {
   if (e.target.getAttribute("value") === null) {
     document.getElementById("imageContainer").innerHTML = "";
   } else {
@@ -62,15 +80,9 @@ function getBreedImages(e) {
         });
       });
   }
-}
+} */
 
-let breeds;
-setTimeout(() => {
-  breeds = jsonData;
-  console.log(breeds);
-}, 1000);
-
-function sortByLetter(e) {
+/* function sortByLetter(e) {
   document.getElementById("container").innerHTML = "";
   if (e === "all") {
     breeds.forEach(breedLink => {
@@ -105,4 +117,4 @@ function sortByLetter(e) {
       }
     });
   }
-}
+} */

@@ -59,9 +59,14 @@ class Dogs {
       }
     });
   }
+
+  linkOutput() {
+    let hold = this.linkArray.join("");
+    document.getElementById("container").innerHTML = hold;
+  }
 }
 
-let roof = new Dogs(["yellow", "red", "blue green", "blue", "yellow blue"]);
+/* let roof = new Dogs(["yellow", "red", "blue green", "blue", "yellow blue"]);
 
 roof.alphabetFilter(["y"]);
 
@@ -71,3 +76,4 @@ console.log(roof.linkArray);
 console.log("\n-----------------------\n");
 roof.resetFilter();
 console.log(roof.linkArray);
+*/
