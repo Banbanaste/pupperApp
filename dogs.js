@@ -7,9 +7,9 @@ class Dogs {
         let link = breed.split(" ");
         link.reverse();
         let newLink = link.join("/");
-        return `<li class="breedLink" onclick="getBreedImages(event)" value="${newLink}">${breed}</li>`;
+        return `<li class="breedLink" onclick="getImages(event)" value="${newLink}">${breed}</li>`;
       } else {
-        return `<li class="breedLink" onclick="getBreedImages(event)" value="${breed}">${breed}</li>`;
+        return `<li class="breedLink" onclick="getImages(event)" value="${breed}">${breed}</li>`;
       }
     });
     this.resetFilter = this.resetFilter.bind(this);
@@ -53,16 +53,15 @@ class Dogs {
         let link = breed.split(" ");
         link.reverse();
         let newLink = link.join("/");
-        return `<li class="breedLink" onclick="getBreedImages(event)" value="${newLink}">${breed}</li>`;
+        return `<li class="breedLink" onclick="getImages(event)" value="${newLink}">${breed}</li>`;
       } else {
-        return `<li class="breedLink" onclick="getBreedImages(event)" value="${breed}">${breed}</li>`;
+        return `<li class="breedLink" onclick="getImages(event)" value="${breed}">${breed}</li>`;
       }
     });
   }
 
   linkOutput() {
-    let hold = this.linkArray.join("");
-    document.getElementById("container").innerHTML = hold;
+    document.getElementById("container").innerHTML = this.linkArray.join("");
   }
 }
 

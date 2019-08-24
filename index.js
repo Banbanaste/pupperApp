@@ -2,6 +2,7 @@
 
 let jsonData;
 let initDog;
+let letterQue = [];
 
 fetch("https://dog.ceo/api/breeds/list/all")
   .then(response => response.json())
@@ -42,7 +43,7 @@ fetch("https://dog.ceo/api/breeds/list/all")
 let breeds;
 setTimeout(() => {
   breeds = jsonData;
-  console.log(breeds);
+  /* console.log(breeds);
   initDog.linkOutput();
   console.log("\n-----------------------\n");
   initDog.alphabetFilter(["a", "b"]);
@@ -51,8 +52,33 @@ setTimeout(() => {
   console.log(initDog.linkArray);
   console.log("\n-----------------------\n");
   initDog.resetFilter();
-  console.log(initDog.linkArray);
+  console.log(initDog.linkArray); */
 }, 1000);
+
+function letterSelect(event, letter) {
+  // event.target.getAttribute("value")
+  if (letterQue.indexOf(letter) === -1) {
+    event.style.backgroundColor = "blue";
+    event.style.color = "white";
+    letterQue.push(letter);
+    console.log(letterQue);
+    initDog.alphabetFilter(letterQue);
+    initDog.linkOutput();
+  } else {
+    event.style.backgroundColor = "rgb(173, 250, 173)";
+    event.style.color = "black";
+    let index = letterQue.indexOf(letter);
+    letterQue.splice(index, 1);
+    console.log(letterQue);
+    initDog.alphabetFilter(letterQue);
+    initDog.linkOutput();
+  }
+}
+
+function outputFilter() {
+  initDog.alphabetFilter(letterQue);
+  initDog.linkOutput();
+}
 
 /* function makeListItem(element, item, itemLink, event) {
   document.getElementById(
@@ -61,7 +87,7 @@ setTimeout(() => {
 }
  */
 
-/* function getBreedImages(e) {
+function getImages(e) {
   if (e.target.getAttribute("value") === null) {
     document.getElementById("imageContainer").innerHTML = "";
   } else {
@@ -80,7 +106,7 @@ setTimeout(() => {
         });
       });
   }
-} */
+}
 
 /* function sortByLetter(e) {
   document.getElementById("container").innerHTML = "";
