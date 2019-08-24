@@ -36,11 +36,12 @@ fetch("https://dog.ceo/api/breeds/list/all")
     });
   });
 
-function makeListItem(element, item, itemLink, event) {
+/* function makeListItem(element, item, itemLink, event) {
   document.getElementById(
     element
   ).innerHTML += `<li class="${element}Item" onclick="${event}" value="${itemLink}">${item}</li>`;
 }
+ */
 
 function getBreedImages(e) {
   if (e.target.getAttribute("value") === null) {
