@@ -23,17 +23,19 @@ ul {
   max-width: 90%;
 }
 
-#letterMenu li {
+#letterMenu li,
+.breedLink {
   border-radius: 5px;
   margin: 10px 20px 10px 0px;
   background-color: rgb(173, 250, 173);
   padding: 5px 10px;
+  transition: 0.2s ease-in-out;
 }
 
-#letterMenu li:hover {
-  color: blue;
-  text-decoration: underline;
+#letterMenu li:hover,
+#container li:hover {
   cursor: pointer;
+  background-color: rgb(128, 209, 128);
 }
 
 #container {
@@ -41,16 +43,9 @@ ul {
 
 .breedLink {
   font-size: 14px;
-  text-transform: capitalize;
-  margin: 10px 20px 10px 0px;
-  border-radius: 5px;
-  background-color: rgb(173, 250, 173);
-  padding: 5px 10px;
 }
 
 .breedLink:hover {
-  color: blue;
-  text-decoration: underline;
   cursor: pointer;
 }
 
@@ -69,13 +64,14 @@ ul {
   text-transform: uppercase;
   color: rgb(255, 255, 255);
   border-radius: 5px;
-  background-color: rgb(236, 110, 65);
+  background-color: rgb(247, 132, 91);
   width: 90%;
   text-align: center;
   margin: 20px auto;
   padding: 10px 0;
+  transition: 0.2s ease-in-out;
 }
 
-#letterMenu li:focus {
-  background-color: blue;
+#clear:hover {
+  background-color: rgb(224, 102, 57);
 }

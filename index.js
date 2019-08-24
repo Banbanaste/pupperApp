@@ -58,7 +58,7 @@ setTimeout(() => {
 function letterSelect(event, letter) {
   // event.target.getAttribute("value")
   if (letterQue.indexOf(letter) === -1) {
-    event.style.backgroundColor = "blue";
+    event.style.backgroundColor = "rgb(123, 192, 224)";
     event.style.color = "white";
     letterQue.push(letter);
     console.log(letterQue);
