@@ -58,15 +58,18 @@ setTimeout(() => {
 function letterSelect(event, letter) {
   // event.target.getAttribute("value")
   if (letterQue.indexOf(letter) === -1) {
-    event.style.backgroundColor = "rgb(123, 192, 224)";
-    event.style.color = "white";
+    console.log(event);
+    event.classList.add("selected");
+    // event.style.backgroundColor = "rgb(123, 192, 224)";
+    // event.style.color = "white";
     letterQue.push(letter);
     console.log(letterQue);
     initDog.alphabetFilter(letterQue);
     initDog.linkOutput();
   } else {
-    event.style.backgroundColor = "rgb(173, 250, 173)";
-    event.style.color = "black";
+    event.classList.remove("selected");
+    // event.style.backgroundColor = "rgb(173, 250, 173)";
+    // event.style.color = "black";
     let index = letterQue.indexOf(letter);
     letterQue.splice(index, 1);
     console.log(letterQue);
@@ -87,15 +90,39 @@ function outputFilter() {
 }
  */
 
+function holdImages(e) {
+  fetch(
+    `https://dog.ceo/api/breed/${e.target.getAttribute(
+      "value"
+    )}/images/random/5`
+  )
+    .then(response => response.json())
+    .then(data => {
+      return data.message;
+    })
+    .then(breedImages => {
+      breedImages.forEach(img => {
+        this.asyncPictures.push(
+          `<li class="breedImage" onclick="" style="background-image: url(${img})" />`
+        );
+      });
+    });
+}
+
 function getImages(e) {
   if (e.target.getAttribute("value") === null) {
     document.getElementById("imageContainer").innerHTML = "";
   } else {
     document.getElementById("imageContainer").innerHTML = "";
     console.log(e.target.getAttribute("value"), "\n-----------------");
-    fetch(`https://dog.ceo/api/breed/${e.target.getAttribute("value")}/images`)
+    fetch(
+      `https://dog.ceo/api/breed/${e.target.getAttribute(
+        "value"
+      )}/images/random/5`
+    )
       .then(response => response.json())
       .then(data => {
+        console.log(data.message);
         return data.message;
       })
       .then(breedImages => {
