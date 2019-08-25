@@ -58,12 +58,12 @@ setTimeout(() => {
 function letterSelect(event, letter) {
   // event.target.getAttribute("value")
   if (letterQue.indexOf(letter) === -1) {
-    console.log(event);
+    // console.log(event);
     event.classList.add("selected");
     // event.style.backgroundColor = "rgb(123, 192, 224)";
     // event.style.color = "white";
     letterQue.push(letter);
-    console.log(letterQue);
+    // console.log(letterQue);
     initDog.alphabetFilter(letterQue);
     initDog.linkOutput();
   } else {
@@ -72,7 +72,7 @@ function letterSelect(event, letter) {
     // event.style.color = "black";
     let index = letterQue.indexOf(letter);
     letterQue.splice(index, 1);
-    console.log(letterQue);
+    // console.log(letterQue);
     initDog.alphabetFilter(letterQue);
     initDog.linkOutput();
   }
@@ -110,19 +110,11 @@ function holdImages(e) {
 }
 
 function getImages(e) {
-  if (e.target.getAttribute("value") === null) {
-    document.getElementById("imageContainer").innerHTML = "";
-  } else {
-    document.getElementById("imageContainer").innerHTML = "";
-    console.log(e.target.getAttribute("value"), "\n-----------------");
-    fetch(
-      `https://dog.ceo/api/breed/${e.target.getAttribute(
-        "value"
-      )}/images/random/5`
-    )
+  initDog.asyncPictures.forEach(elem => {
+    fetch(elem)
       .then(response => response.json())
       .then(data => {
-        console.log(data.message);
+        // console.log(data.message);
         return data.message;
       })
       .then(breedImages => {
@@ -132,7 +124,33 @@ function getImages(e) {
           ).innerHTML += `<li class="breedImage" onclick="" style="background-image: url(${img})" />`;
         });
       });
-  }
+    document.getElementById("container").innerHTML = "";
+    initDog.asyncPictures = [];
+  });
+
+  /* if (e.target.getAttribute("value") === null) {
+    document.getElementById("imageContainer").innerHTML = "";
+  } else {
+    document.getElementById("imageContainer").innerHTML = "";
+    // console.log(e.target.getAttribute("value"), "\n-----------------");
+    fetch(
+      `https://dog.ceo/api/breed/${e.target.getAttribute(
+        "value"
+      )}/images/random/5`
+    )
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data.message);
+        return data.message;
+      })
+      .then(breedImages => {
+        breedImages.forEach(img => {
+          document.getElementById(
+            "imageContainer"
+          ).innerHTML += `<li class="breedImage" onclick="" style="background-image: url(${img})" />`;
+        });
+      });
+  } */
 }
 
 /* function sortByLetter(e) {

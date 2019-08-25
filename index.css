@@ -57,15 +57,15 @@ ul {
 }
 
 .breedImage {
-  height: 200px;
-  width: 200px;
+  height: 75px;
+  width: 75px;
   background-position: center;
   background-size: cover;
   border-radius: 10px;
   margin: 10px;
 }
 
-#clear {
+.clear {
   font-size: 16px;
   text-transform: uppercase;
   color: rgb(255, 255, 255);
@@ -78,7 +78,7 @@ ul {
   transition: 0.2s ease-in-out;
 }
 
-#clear:hover {
+.clear:hover {
   background-color: rgb(224, 102, 57);
 }
 

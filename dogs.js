@@ -55,15 +55,28 @@ class Dogs {
         let link = breed.split(" ");
         link.reverse();
         let newLink = link.join("/");
-        return `<li class="breedLink" onclick="initDog.holdImages(event)" value="${newLink}">${breed}</li>`;
+        return `<li class="breedLink link" onclick="initDog.holdImages(event)" value="${newLink}">${breed}</li>`;
       } else {
-        return `<li class="breedLink" onclick="initDog.holdImages(event)" value="${breed}">${breed}</li>`;
+        return `<li class="breedLink link" onclick="initDog.holdImages(event)" value="${breed}">${breed}</li>`;
       }
     });
   }
 
   holdImages(e) {
-    fetch(
+    let liElement = `https://dog.ceo/api/breed/${e.target.getAttribute(
+      "value"
+    )}/images/random/5`;
+    let index = this.asyncPictures.indexOf(liElement);
+    console.log(index);
+    if (this.asyncPictures.indexOf(liElement) === -1) {
+      this.asyncPictures.push(liElement);
+      e.target.classList.add("selected");
+    } else {
+      this.asyncPictures.splice(index, 1);
+      e.target.classList.remove("selected");
+    }
+
+    /* fetch(
       `https://dog.ceo/api/breed/${e.target.getAttribute(
         "value"
       )}/images/random/5`
@@ -78,7 +91,7 @@ class Dogs {
             `<li class="breedImage" onclick="" style="background-image: url(${img})" />`
           );
         });
-      });
+      }); */
     console.log(this.asyncPictures);
   }
 
